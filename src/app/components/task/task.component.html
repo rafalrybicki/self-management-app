@@ -1,0 +1,4 @@
+<i class="bi {{ completion ? 'bi-check-square-fill' : 'bi-square' }}" (click)="toggle()"></i>
+<span [class.completed]="completion" (click)="showDetails()">{{ content }}</span>
+<i class="action bi bi-pen"></i>
+<i class="action bi bi-three-dots"></i>

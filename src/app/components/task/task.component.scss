@@ -1,0 +1,48 @@
+:host {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 20px;
+    margin: 0 auto 10px;
+
+    span {
+        margin-left: 10px;
+        flex-grow: 1;
+        
+        &.completed {
+            text-decoration: line-through;
+            color: grey;
+        }
+    }
+
+    &:hover {
+        i.action {
+            visibility: visible;
+        }
+    }
+
+    i {        
+        &.bi-check-square-fill {
+            color: royalblue;
+        }
+
+        &.action {
+            visibility: hidden;
+            color: grey;
+            width: 26px;
+            height: 26px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                color: black;
+                background-color: lightgrey;
+            }
+        }
+    }
+}
