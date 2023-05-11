@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { TaskComponent } from './components/task/task.component';
 import { DayComponent } from './pages/day/day.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { QuoteComponent } from './components/quote/quote.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskComponent,
     DayComponent,
-    MenuComponent
+    MenuComponent,
+    QuoteComponent
   ],
   imports: [
     BrowserModule,
