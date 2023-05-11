@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { showQuote } from '../../shared/utils';
 
 @Component({
   selector: 'app-task',
@@ -8,11 +9,14 @@ import { Component, Input } from '@angular/core';
 export class TaskComponent {
   @Input() id: number;
   @Input() content: string;
-  @Input() completion: boolean;
+  @Input() completed: boolean;
   @Input() date: string;
 
   toggle(): void {
-    this.completion = !this.completion;
+    if (!this.completed) {
+      showQuote();
+    }
+    this.completed = !this.completed;
   }
 
   showDetails(): void {
