@@ -1,0 +1,98 @@
+:host {
+    position: absolute;
+    top: 0;
+    left: -270px;
+    z-index: 100;
+    transition: all .2s;
+
+    &.open {
+        left: 0;
+
+        button {
+            display: none;
+            right: 10px;
+
+            &:hover {
+                background-color: white;
+                color: grey;
+            }
+        }
+
+        .overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    nav {
+        height: 100vh;
+        width: 270px;
+        background-color: lightgrey;
+        font-size: 18px;
+        padding: 10px;
+
+        ul {
+            margin-bottom: 20px;
+            
+            a {
+                display: block;
+                padding: 10px;
+                border-radius:4px;
+                
+                &.active {
+                    background-color: white;
+                }
+                
+                i {
+                    margin-right: 5px;
+                    
+                    &.bi-circle-fill {
+                        display: inline-block;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    button {
+        position: absolute;
+        bottom: 15px;
+        right: -45px;
+        padding: 5px;
+        border-radius: 3px;
+
+        &:hover {
+            background-color: lightgrey;
+        }
+
+        i {
+            font-size: 22px;
+        }
+    }
+
+    .overlay {
+        opacity: 0;
+        visibility: hidden;
+        z-index: -1;
+        background-color: rgba(0,0,0,.5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        transition: all .3s;
+    }
+
+    @media (min-width: 768px) {
+        &.open {
+            button {
+                display: block;
+            }
+        }
+
+        .overlay {
+            display: none !important;
+        }
+    }
+}

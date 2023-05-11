@@ -1,0 +1,56 @@
+<nav>
+    <ul>
+        <li>
+            <a routerLink="/inbox" routerLinkActive="active">
+                <i class="bi bi-inbox-fill"></i>
+                Inbox
+            </a>
+        </li>
+        <li>
+            <a routerLink="/today" routerLinkActive="active">
+                <i class="bi bi-calendar3-event"></i>
+                Today
+            </a>
+        </li>
+        <li>
+            <a routerLink="/day/12-5-2023" routerLinkActive="active">
+                <i class="bi bi-sunrise-fill"></i>
+                Tomorrow
+            </a>
+        </li>
+        <li>
+            <a routerLink="/upcoming" routerLinkActive="active">
+                <i class="bi bi-calendar3"></i>
+                Upcoming
+            </a>
+        </li>
+    </ul>
+    
+    <ul>
+        <li>
+            <a routerLink="/project/1" routerLinkActive="active">
+                <i class="bi bi-circle-fill" [style.color]="'orange'"></i>
+                Project 1
+            </a>
+        </li>
+        <li>
+            <a routerLink="/project/2" routerLinkActive="active">
+                <i class="bi bi-circle-fill" [style.color]="'blue'"></i>
+                Project 2
+            </a>
+        </li>
+        <li>
+            <a routerLink="/project/3" routerLinkActive="active">
+                <i class="bi bi-circle-fill" [style.color]="'green'"></i>
+                Project 3
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<button (click)="toggleMenu()">
+    <i class="bi bi-arrow-left-right"></i>
+</button>
+
+
+<span class="overlay"(click)="toggleMenu()"></span>

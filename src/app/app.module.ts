@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskComponent } from './components/task/task.component';
 import { DayComponent } from './pages/day/day.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskComponent,
-    DayComponent
+    DayComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
