@@ -7,6 +7,8 @@ import { TaskComponent } from './components/task/task.component';
 import { DayComponent } from './pages/day/day.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { QuoteComponent } from './components/quote/quote.component';
+import { NewTaskComponent } from './components/new-task/new-task.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,14 @@ import { QuoteComponent } from './components/quote/quote.component';
     TaskComponent,
     DayComponent,
     MenuComponent,
-    QuoteComponent
+    QuoteComponent,
+    NewTaskComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,20 @@
+<button *ngIf="!showEditor" (click)="toggleEditor()">+ Add new task</button>
+
+<form *ngIf="showEditor" class="editor"  [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <input autofocus type="text" formControlName="content" />
+
+    <span class="datepicker-toggle">
+        <button type="button" class="datepicker-toggle-button">
+            <i class="bi bi-calendar3"></i>
+        </button>
+        <input type="date" class="datepicker-input" formControlName="date" tabindex="-1" />
+    </span>
+
+    <button (click)="toggleEditor()" type="button">
+        <i class="bi bi-x-square-fill"></i>
+    </button>
+
+    <button type="submit" [disabled]="!taskForm.valid">
+        <i class="bi bi-check-square-fill"></i>
+    </button>
+</form>

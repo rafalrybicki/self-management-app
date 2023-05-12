@@ -1,7 +1,6 @@
 :host {
     display: flex;
-    width: 100%;
-    max-width: 600px;
+    width: 500px;
     margin-bottom: 10px;
     cursor: pointer;
     user-select: none;
@@ -11,6 +10,7 @@
     span {
         margin-left: 10px;
         flex-grow: 1;
+        padding-top: 1px;
         
         &.completed {
             text-decoration: line-through;
@@ -24,7 +24,11 @@
         }
     }
 
-    i {        
+    i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         &.bi-check-circle-fill {
             color: blue;
         }
@@ -35,9 +39,6 @@
             width: 26px;
             height: 26px;
             border-radius: 3px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin-right: 5px;
 
             &:hover {
