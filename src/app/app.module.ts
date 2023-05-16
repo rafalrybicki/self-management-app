@@ -9,6 +9,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { QuoteComponent } from './components/quote/quote.component';
 import { NewTaskComponent } from './components/new-task/new-task.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WeekComponent } from './pages/week/week.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DayComponent,
     MenuComponent,
     QuoteComponent,
-    NewTaskComponent
+    NewTaskComponent,
+    WeekComponent
   ],
   imports: [
     BrowserModule,

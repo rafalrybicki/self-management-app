@@ -14,6 +14,15 @@ app-root {
     padding: 0 20px;
 }
 
+.view {
+    max-width: 100%;
+    
+    h1 {
+        text-align: center;
+        margin: 30px 0 20px;
+    }
+}
+
 button {
     cursor: pointer;
     background-color: transparent;
@@ -35,4 +44,14 @@ ul {
 
 .bi::before {
     vertical-align: 0 !important;
+}
+
+.success {
+    background-color: green;
+    color: white;
+}
+
+.danger {
+    background-color: red;
+    color: white;
 }

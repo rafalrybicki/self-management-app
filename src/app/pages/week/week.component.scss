@@ -1,0 +1,43 @@
+:host {
+    display: block;
+    margin: 0 auto;
+    width: max-content;
+    text-align: center;
+
+    button {
+        background-color: lightgrey;
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+    h1 {
+        display: inline-block;
+        padding: 0 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    
+        th {
+            padding: 10px;
+            border: 1px solid lightgrey;
+        }
+    
+        td {
+            text-align: center;
+            border: 1px solid lightgrey;
+            min-height: 30px;
+            min-width: 40px;
+    
+            &:first-of-type {
+                padding: 10px;
+                font-weight: bold;
+            }
+        }
+    
+        tr {
+            min-height: 30px;
+        }
+    }
+}
