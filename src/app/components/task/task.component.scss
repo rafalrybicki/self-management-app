@@ -1,22 +1,46 @@
 :host {
     display: flex;
     width: 500px;
+    max-width: 100%;
     margin-bottom: 10px;
     cursor: pointer;
     user-select: none;
-    font-size: 20px;
+    font-size: 18px;
     margin: 0 auto 10px;
 
-    span {
-        margin-left: 10px;
+    p {
+        margin-left: 7px;
         flex-grow: 1;
-        padding-top: 1px;
-        
+        padding-top: 4px;
+        line-height: 1;
+
         &.completed {
-            text-decoration: line-through;
-            color: grey;
+            .content {
+                text-decoration: line-through;
+                color: grey;
+            }
+
+            .weight, .subtasks {
+                opacity: 0.3;
+            }
         }
+
+        span {
+            border-radius: 3px;
+            padding: 2px 4px;
+            font-size: 14px;
+            
+            &.weight {
+                background-color:lightblue;
+                margin-right: 7px;
+            }
+
+            &.subtasks {
+                background-color: lightcoral;
+            }
+        } 
     }
+    
 
     &:hover {
         i.action {

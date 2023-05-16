@@ -1,4 +1,10 @@
 <i class="bi {{ completed ? 'bi-check-circle-fill' : 'bi-circle' }}" (click)="toggle()"></i>
-<span [class.completed]="completed" (click)="showDetails()">{{ content }}</span>
+<p [class.completed]="completed" (click)="showDetails()">
+    <span class="content">
+        {{ content }}
+    </span>
+    <span *ngIf="weight !== 100" class="weight"> x{{ weight / 100}}</span>
+    <span *ngIf="totalSubtasks" class="subtasks">{{completedSubtasks}}/{{totalSubtasks}}</span>
+</p>
 <i class="action bi bi-pen"></i>
 <i class="action bi bi-three-dots"></i>
