@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,9 @@ import { QuoteComponent } from './components/quote/quote.component';
 import { NewTaskComponent } from './components/new-task/new-task.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WeekComponent } from './pages/week/week.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { taskReducer } from './store/task.reducer';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { WeekComponent } from './pages/week/week.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],
   bootstrap: [AppComponent]
