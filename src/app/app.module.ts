@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WeekComponent } from './pages/week/week.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { taskReducer } from './store/task.reducer';
+import { rootReducer } from './store/rootReducer';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { taskReducer } from './store/task.reducer';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(rootReducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],

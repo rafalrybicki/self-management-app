@@ -1,3 +1,5 @@
+import { formatDate } from "@angular/common";
+
 export const showQuote = (): void => {
     const quote = document.querySelector('#quote')!;
     
@@ -6,6 +8,10 @@ export const showQuote = (): void => {
     setTimeout(() => {
         quote.classList.remove('open');
     }, 5000);
+}
+
+export const getFormattedDate = (date: Date = new Date()): string => {
+    return formatDate(date, 'd-M-yyyy', 'en');
 }
 
 export const getWeek = (currentDate = new Date()): string => {
