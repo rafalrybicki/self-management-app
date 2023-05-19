@@ -1,12 +1,12 @@
-<h1>{{ date | date:'EEEE d LLLL yyyy' }} {{ 11.5 / 15.5 | percent:'1.0-1' }}</h1>
+<h1>{{ date | date:'EEEE d LLLL yyyy' }} {{ dayPercentage$ | async }}</h1>
 
-<app-task [id]="1" content="wake up before 9am" date="11-5-2023"></app-task>
-<app-task [id]="2" content="morning routine" date="11-5-2023" [weight]="25"></app-task>
-<app-task [id]="3" content="EXERCISES" date="11-5-2023"></app-task>
-<app-task [id]="4" content="no internet" date="11-5-2023"></app-task>
-<app-task [id]="6" content="POMODORO" date="11-5-2023" [weight]="1000" [totalSubtasks]="10"></app-task>
-<app-task [id]="5" content="english 3 x 10 minutes" date="11-5-2023" [weight]="50" [totalSubtasks]="3"></app-task>
-<app-task [id]="17" content="book" date="11-5-2023"></app-task>
-<app-task [id]="18" content="evening routune" date="11-5-2023" [weight]="25"></app-task>
+<app-task *ngFor="let task of tasks$ | async"
+    [id]="task.id"
+    [content]="task.content"
+    [weight]="task.weight"
+    [completion]="task.completion"
+    [totalSubtasks]="task.totalSubtasks"
+    [completedSubtasks]="task.completedSubtasks"
+></app-task>
 
-<app-new-task></app-new-task>
+<app-new-task [date]="date"></app-new-task>
