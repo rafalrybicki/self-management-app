@@ -7,7 +7,7 @@
             </a>
         </li>
         <li>
-            <a routerLink="/week/{{actualWeek}}" routerLinkActive="active">
+            <a [routerLink]="actualWeekUrl" routerLinkActive="active">
                 <i class="bi bi-calendar3-week"></i>
                 Week
             </a>
@@ -19,7 +19,7 @@
             </a>
         </li>
         <li>
-            <a routerLink="/day/12-5-2023" routerLinkActive="active">
+            <a [routerLink]="tomorrowUrl" routerLinkActive="active">
                 <i class="bi bi-sunrise-fill"></i>
                 Tomorrow
             </a>

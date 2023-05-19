@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getWeek } from 'src/app/shared/utils';
+import { getFormattedDate, getWeek } from 'src/app/shared/utils';
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +7,8 @@ import { getWeek } from 'src/app/shared/utils';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-  actualWeek: string = getWeek() + `-${new Date().getFullYear()}`;
+  tomorrowUrl: string = '/day/' + getFormattedDate(new Date(Date.now() + 86400000));
+  actualWeekUrl: string = '/week/' + getWeek();
 
   toggleMenu(): void {
     document.querySelector('app-menu')?.classList.toggle('open');
