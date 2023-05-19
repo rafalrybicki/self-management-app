@@ -7,4 +7,4 @@
     <span *ngIf="totalSubtasks" class="subtasks">{{completedSubtasks}}/{{totalSubtasks}}</span>
 </p>
 <i class="action bi bi-pen"></i>
-<i class="action bi bi-three-dots"></i>
+<i class="action bi bi-trash3" (click)="deleteTask()"></i>

@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { showQuote } from '../../shared/utils';
+import { Store } from '@ngrx/store';
+import { State, Task } from 'src/app/shared/models';
+import { deleteTask, updateTask } from '../../store/tasks.actions';
+import { showQuote } from 'src/app/shared/utils';
 
 @Component({
   selector: 'app-task',
@@ -7,27 +10,39 @@ import { showQuote } from '../../shared/utils';
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent {
-  @Input() id: number;
+  @Input() id: string;
   @Input() content: string;
   @Input() date: string;
-  @Input() weight: number = 100;
-  @Input() completion: number = 0;
-  @Input() totalSubtasks: number = 0;
-  @Input() completedSubtasks: number = 0;
+  @Input() weight: number;
+  @Input() completion: number;
+  @Input() order: number;
+  @Input() totalSubtasks: number | undefined;
+  @Input() completedSubtasks: number | undefined;
+
+  constructor(private store: Store<State>) {}
 
   toggle(): void {
     if (!this.completed) {
-      if (this.totalSubtasks === 0) {
-        this.completion = this.weight;
+      if (!this.totalSubtasks) {
+        this.updateTask({ completion: this.weight });
       } else {
-        this.completedSubtasks += 1;
-        this.completion = (this.completedSubtasks / this.totalSubtasks) * this.weight;
+        this.updateTask({ 
+          completedSubtasks: this.completedSubtasks! += 1,
+          completion: (this.completedSubtasks! / this.totalSubtasks!) * this.weight
+        });
       }
       showQuote();
     } else {
-      this.completedSubtasks = 0;
-      this.completion = 0;
+      this.updateTask({ completion: 0, completedSubtasks: 0 });
     }
+  }
+
+  updateTask(values: Partial<Task>): void {
+    this.store.dispatch(updateTask({ taskId: this.id, values }))
+  }
+
+  deleteTask(): void {
+    this.store.dispatch(deleteTask({ taskId: this.id }))
   }
 
   showDetails(): void {
