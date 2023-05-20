@@ -13,6 +13,7 @@ import { WeekComponent } from './pages/week/week.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { rootReducer } from './store/rootReducer';
+import { TaskEditorComponent } from './components/task-editor/task-editor.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { rootReducer } from './store/rootReducer';
     MenuComponent,
     QuoteComponent,
     NewTaskComponent,
-    WeekComponent
+    WeekComponent,
+    TaskEditorComponent
   ],
   imports: [
     BrowserModule,

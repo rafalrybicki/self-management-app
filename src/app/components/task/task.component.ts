@@ -16,19 +16,21 @@ export class TaskComponent {
   @Input() weight: number;
   @Input() completion: number;
   @Input() order: number;
-  @Input() totalSubtasks: number | undefined;
-  @Input() completedSubtasks: number | undefined;
+  @Input() subtasks: number;
+  @Input() completedSubtasks: number;
+
+  edit: boolean = false;
 
   constructor(private store: Store<State>) {}
 
   toggle(): void {
     if (!this.completed) {
-      if (!this.totalSubtasks) {
+      if (!this.subtasks) {
         this.updateTask({ completion: this.weight });
       } else {
         this.updateTask({ 
-          completedSubtasks: this.completedSubtasks! += 1,
-          completion: (this.completedSubtasks! / this.totalSubtasks!) * this.weight
+          completedSubtasks: this.completedSubtasks += 1,
+          completion: (this.completedSubtasks / this.subtasks) * this.weight
         });
       }
       showQuote();
@@ -37,12 +39,23 @@ export class TaskComponent {
     }
   }
 
+  toggleEditor(): void {
+    this.edit = !this.edit;
+  }
+
   updateTask(values: Partial<Task>): void {
     this.store.dispatch(updateTask({ taskId: this.id, values }))
   }
 
   deleteTask(): void {
-    this.store.dispatch(deleteTask({ taskId: this.id }))
+    if (window.confirm("Are you sure?")) {
+      this.store.dispatch(deleteTask({ taskId: this.id }));
+    }
+  }
+
+  onEdit(values: Partial<Task>): void {
+    this.updateTask(values);
+    this.toggleEditor;
   }
 
   showDetails(): void {

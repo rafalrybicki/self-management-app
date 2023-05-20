@@ -1,12 +1,12 @@
 export interface Task {
     id: string;
     content: string;
-    date?: string;
+    date: string;
     weight: number;
     completion: number;
     order: number;
-    totalSubtasks?: number;
-    completedSubtasks?: number;
+    subtasks: number;
+    completedSubtasks: number;
 }
 
 export interface Quote {

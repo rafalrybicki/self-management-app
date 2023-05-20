@@ -1,0 +1,31 @@
+<form class="editor" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="content">
+        <label for="content">Content</label>
+        <input id="content" autofocus type="text" formControlName="content" />
+    </div>
+
+    <div class="weight">
+        <label for="weight">Multiplier</label>
+        <input type="number" formControlName="multiplier" min="0.1" step="0.1" />
+    </div>
+
+    <div class="subtasks">
+        <label for="subtasks">Subtasks</label>
+        <input type="number" formControlName="subtasks" min="0" max="10" step="1" />
+    </div>
+
+    <!-- <span class="datepicker-toggle">
+        <button type="button" class="datepicker-toggle-button">
+            <i class="bi bi-calendar3"></i>
+        </button>
+        <input type="date" class="datepicker-input" formControlName="date" tabindex="-1" />
+    </span> -->
+
+    <button (click)="onClose()" class="btn-cancel" type="button">
+        Cancel
+    </button>
+
+    <button class="btn-submit" type="submit" [disabled]="!taskForm.valid">
+        Save
+    </button>
+</form>

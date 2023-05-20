@@ -10,7 +10,9 @@ export const initialState: Task[] =  [
         date: getFormattedDate(),
         weight: 1,
         completion: 1,
-        order: 1
+        order: 1,
+        subtasks: 0,
+        completedSubtasks: 0
     },
     {
         id: 'ID_' + Math.random(),
@@ -18,7 +20,9 @@ export const initialState: Task[] =  [
         date: getFormattedDate(),
         weight: 1,
         completion: 0,
-        order: 2
+        order: 2,
+        subtasks: 0,
+        completedSubtasks: 0
     },
     {
         id: 'ID_' + Math.random(),
@@ -27,7 +31,7 @@ export const initialState: Task[] =  [
         weight: 5,
         completion: 0,
         order: 2,
-        totalSubtasks: 5,
+        subtasks: 5,
         completedSubtasks: 0
     },
     {
@@ -36,7 +40,9 @@ export const initialState: Task[] =  [
         date: getFormattedDate(new Date(Date.now() + 86400000)),
         weight: 1,
         completion: 0,
-        order: 1
+        order: 1,
+        subtasks: 0,
+        completedSubtasks: 0
     }
 ]
 

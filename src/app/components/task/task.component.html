@@ -1,10 +1,20 @@
-<i class="bi {{ completed ? 'bi-check-circle-fill' : 'bi-circle' }}" (click)="toggle()"></i>
-<p [class.completed]="completed" (click)="showDetails()">
-    <span class="content">
-        {{ content }}
-    </span>
-    <span *ngIf="weight !== 100" class="weight"> x{{ weight / 100}}</span>
-    <span *ngIf="totalSubtasks" class="subtasks">{{completedSubtasks}}/{{totalSubtasks}}</span>
-</p>
-<i class="action bi bi-pen"></i>
-<i class="action bi bi-trash3" (click)="deleteTask()"></i>
+<ng-container *ngIf="!edit">
+    <i class="bi {{ completed ? 'bi-check-circle-fill' : 'bi-circle' }}" (click)="toggle()"></i>
+    <p [class.completed]="completed" (click)="showDetails()">
+        <span class="content">
+            {{ content }}
+        </span>
+        <span *ngIf="weight !== 1" class="weight"> x{{ weight }}</span>
+        <span *ngIf="!completed && subtasks" class="subtasks">{{completedSubtasks}}/{{subtasks}}</span>
+    </p>
+    <i class="action bi bi-pen" (click)="toggleEditor()"></i>
+    <i class="action bi bi-trash3" (click)="deleteTask()"></i>
+</ng-container>
+<app-task-editor
+    *ngIf="edit"
+    [content]="content"
+    [multiplier]="subtasks > 0 ? weight / subtasks : 1"
+    [subtasks]="subtasks"
+    (close)="toggleEditor()"
+    (save)="onEdit($event)"
+></app-task-editor>
