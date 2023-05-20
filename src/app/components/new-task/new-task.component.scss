@@ -2,7 +2,7 @@
     display: block;
     max-width: max-content;
     margin: 20px auto 0;
-    border-radius: 4px;
+    border-radius: 3px;
     background-color: lightgrey;
 
     > button {
@@ -11,86 +11,124 @@
     }
 
     form {
+        position: relative;
         width: 500px;
         max-width: 100%;
-        padding: 10px;
-        display: flex;
-        align-content: center;
+        padding: 10px 10px;
 
-        .datepicker-toggle {
-            display: inline-block;
-            position: relative;
-            width: 26px;
-            height: 26px;
-            margin-left: 8px;
+        div {
+            display: flex;
+            align-items: center;
+            
+            &.content {
+                margin-bottom: 10px;
+                width: 100%;
+
+                input {
+                    flex: 1;
+                    padding: 0 5px;
+                }
+            }
+
+
+            &.weight, &.subtasks {
+                display: inline-block;
+
+                input {
+                    width: 70px;
+                    text-align: center;
+                    padding-left: 10px;
+                }
+            }
+
+            &.weight {
+                margin-right: 20px;
+            }
+
+            &.subtasks {
+                label {
+                    width: 70px;
+                }
+            }
+
+            label {
+                font-size: 14px;
+                width: 60px;
+                display: inline-block;
+            }
+
+            input {
+                height: 26px;
+                border-radius: 3px;
+                border: none;
+                flex: 1;
+                font-size: 16px;
+            }
         }
 
-        .datepicker-toggle-button {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            margin-left: 0 !important;
-        }
+        // .datepicker-toggle {
+        //     display: inline-block;
+        //     position: relative;
+        //     width: 26px;
+        //     height: 26px;
+        //     margin-left: 8px;
+        // }
 
-        .datepicker-input {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-            box-sizing: border-box;
-            background-color: blue;
-        }
+        // .datepicker-toggle-button {
+        //     position: absolute;
+        //     left: 0;
+        //     top: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     margin-left: 0 !important;
+        // }
 
-        .datepicker-input::-webkit-calendar-picker-indicator {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            cursor: pointer;
-        }
+        // .datepicker-input {
+        //     position: absolute;
+        //     left: 0;
+        //     top: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     opacity: 0;
+        //     cursor: pointer;
+        //     box-sizing: border-box;
+        //     background-color: blue;
+        // }
 
-        input {
-            height: 26px;
-            border-radius: 4px;
-            border: none;
-            flex: 1;
-            font-size: 16px;
-        }
+        // .datepicker-input::-webkit-calendar-picker-indicator {
+        //     position: absolute;
+        //     left: 0;
+        //     top: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     margin: 0;
+        //     padding: 0;
+        //     cursor: pointer;
+        // }
 
         button {
+            position: absolute;
             width: max-content;
+            padding: 0 10px;
+            height: 26px;
+            border-radius: 3px;
+            bottom: 10px;
+            color: white;
+            font-size: 14px;
             
             &:disabled {
                 opacity: 0.5;
                 cursor: not-allowed;
             }
-        }
 
-        i {
-            display: block;
-            height: 26px;
-            font-size: 26px;
+            &.btn-cancel {
+                right: 70px;
+                background-color: red;
+            }
 
-            &.bi-calendar3 {
-                background-color: white;
-                border-radius: 3px;
-            }
-    
-            &.bi-x-square-fill {
-                margin: 0 7px;
-                color: red;
-            }
-    
-            &.bi-check-square-fill {
-                color: green;
+            &.btn-submit {
+                right: 10px;
+                background-color: green;
             }
         }
     }

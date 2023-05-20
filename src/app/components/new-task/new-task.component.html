@@ -1,20 +1,33 @@
 <button *ngIf="!showEditor" (click)="toggleEditor()">+ Add new task</button>
 
 <form *ngIf="showEditor" class="editor"  [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-    <input autofocus type="text" formControlName="content" />
+    <div class="content">
+        <label for="content">Content</label>
+        <input id="content" autofocus type="text" formControlName="content" />
+    </div>
 
-    <span class="datepicker-toggle">
+    <div class="weight">
+        <label for="weight">Weight</label>
+        <input autofocus type="number" formControlName="weight" min="0.1" step="0.1" />
+    </div>
+
+    <div class="subtasks">
+        <label for="subtasks">Subtasks</label>
+        <input autofocus type="number" formControlName="subtasks" min="0" max="10" step="1" />
+    </div>
+
+    <!-- <span class="datepicker-toggle">
         <button type="button" class="datepicker-toggle-button">
             <i class="bi bi-calendar3"></i>
         </button>
         <input type="date" class="datepicker-input" formControlName="date" tabindex="-1" />
-    </span>
+    </span> -->
 
-    <button (click)="toggleEditor()" type="button">
-        <i class="bi bi-x-square-fill"></i>
+    <button class="btn-cancel" (click)="toggleEditor()" type="button">
+        Cancel
     </button>
 
-    <button type="submit" [disabled]="!taskForm.valid">
-        <i class="bi bi-check-square-fill"></i>
+    <button class="btn-submit" type="submit" [disabled]="!taskForm.valid">
+        Save
     </button>
 </form>

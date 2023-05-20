@@ -8,15 +8,15 @@ export const initialState: Task[] =  [
         id: 'ID_' + Math.random(),
         content: 'Task completed',
         date: getFormattedDate(),
-        weight: 100,
-        completion: 100,
+        weight: 1,
+        completion: 1,
         order: 1
     },
     {
         id: 'ID_' + Math.random(),
         content: 'Task',
         date: getFormattedDate(),
-        weight: 100,
+        weight: 1,
         completion: 0,
         order: 2
     },
@@ -24,7 +24,7 @@ export const initialState: Task[] =  [
         id: 'ID_' + Math.random(),
         content: 'Task pomodoro',
         date: getFormattedDate(),
-        weight: 500,
+        weight: 5,
         completion: 0,
         order: 2,
         totalSubtasks: 5,
@@ -34,7 +34,7 @@ export const initialState: Task[] =  [
         id: 'ID_' + Math.random(),
         content: 'Task tomorrow',
         date: getFormattedDate(new Date(Date.now() + 86400000)),
-        weight: 100,
+        weight: 1,
         completion: 0,
         order: 1
     }
