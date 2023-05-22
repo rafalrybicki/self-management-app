@@ -33,22 +33,10 @@
     </ul>
     
     <ul>
-        <li>
-            <a routerLink="/project/1" routerLinkActive="active">
-                <i class="bi bi-circle-fill" [style.color]="'orange'"></i>
-                Project 1
-            </a>
-        </li>
-        <li>
-            <a routerLink="/project/2" routerLinkActive="active">
-                <i class="bi bi-circle-fill" [style.color]="'blue'"></i>
-                Project 2
-            </a>
-        </li>
-        <li>
-            <a routerLink="/project/3" routerLinkActive="active">
-                <i class="bi bi-circle-fill" [style.color]="'green'"></i>
-                Project 3
+        <li *ngFor="let project of projects$ | async">
+            <a routerLink="/project/{{project.id}}" routerLinkActive="active">
+                <i class="bi bi-circle-fill" [style.color]="project.color"></i>
+                {{ project.name }}
             </a>
         </li>
     </ul>
