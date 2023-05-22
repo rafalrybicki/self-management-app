@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { State, Task } from 'src/app/shared/models';
 import { getFormattedDate } from 'src/app/shared/utils';
 import { addTask } from 'src/app/store/tasks.actions';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-new-task',
@@ -21,7 +22,7 @@ export class NewTaskComponent {
 
   onSave(values: Partial<Task>): void {
     this.store.dispatch(addTask({ 
-      id: 'ID_' + Math.random(),
+      id: uuid(),
       date: getFormattedDate(this.date),
       completion: 0,
       order: 1,

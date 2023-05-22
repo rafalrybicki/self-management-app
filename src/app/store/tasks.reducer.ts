@@ -2,10 +2,11 @@ import { Task } from "../shared/models";
 import { createReducer, on } from "@ngrx/store";
 import * as TaskActions from './tasks.actions';
 import { getFormattedDate } from "../shared/utils";
+import { v4 as uuid } from 'uuid';
 
 export const initialState: Task[] =  [
     {
-        id: 'ID_' + Math.random(),
+        id: uuid(),
         content: 'Task completed',
         date: getFormattedDate(),
         weight: 1,
@@ -15,7 +16,7 @@ export const initialState: Task[] =  [
         completedSubtasks: 0
     },
     {
-        id: 'ID_' + Math.random(),
+        id: uuid(),
         content: 'Task',
         date: getFormattedDate(),
         weight: 1,
@@ -25,7 +26,7 @@ export const initialState: Task[] =  [
         completedSubtasks: 0
     },
     {
-        id: 'ID_' + Math.random(),
+        id: uuid(),
         content: 'Task pomodoro',
         date: getFormattedDate(),
         weight: 5,
@@ -35,7 +36,7 @@ export const initialState: Task[] =  [
         completedSubtasks: 0
     },
     {
-        id: 'ID_' + Math.random(),
+        id: uuid(),
         content: 'Task tomorrow',
         date: getFormattedDate(new Date(Date.now() + 86400000)),
         weight: 1,
