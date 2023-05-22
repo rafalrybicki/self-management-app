@@ -1,4 +1,5 @@
 import { formatDate } from "@angular/common";
+import { v4 as uuid } from 'uuid';
 
 export const showQuote = (): void => {
     const quote = document.querySelector('#quote')!;
@@ -37,3 +38,6 @@ export const getNextWeek = (week: number, year: number): string => {
         return `${week + 1}-${year}`;
     }
 }
+
+export const inboxId = uuid();
+export const someProjectId = uuid();

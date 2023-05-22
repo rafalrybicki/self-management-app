@@ -1,7 +1,9 @@
-import { quoteReducer } from "./quotes.reducer";
-import { taskReducer } from "./tasks.reducer";
+import { quotesReducer } from "./quotes.reducer";
+import { projectsReducer } from "./projects.reducer";
+import { tasksReducer } from "./tasks.reducer";
 
 export const rootReducer = {
-    tasks: taskReducer,
-    quotes: quoteReducer
+    projects: projectsReducer,
+    tasks: tasksReducer,
+    quotes: quotesReducer
 }

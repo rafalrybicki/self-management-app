@@ -24,6 +24,6 @@ const initialState: Quote[] = [
     }
 ]
 
-export const quoteReducer = createReducer(
+export const quotesReducer = createReducer(
     initialState
 )
