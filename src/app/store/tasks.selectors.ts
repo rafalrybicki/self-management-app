@@ -4,9 +4,14 @@ import { formatPercent } from '@angular/common';
 
 const selectTasks = (state: State) => state.tasks;
 
+export const selectTasksByProject = createSelector(
+    selectTasks,
+    (tasks: Task[],  projectId: string) => tasks.filter(task => task.projectId === projectId).sort((a, b) => a.order - b.order)
+);
+
 export const selectTasksByDate = createSelector(
     selectTasks,
-    (tasks: Task[],  props: any) => tasks.filter(task => task.date === props.date)
+    (tasks: Task[],  date: string) => tasks.filter(task => task.date === date)
 );
 
 export const selectDatePercentage = createSelector(

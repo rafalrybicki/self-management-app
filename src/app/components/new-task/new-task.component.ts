@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State, Task } from 'src/app/shared/models';
-import { getFormattedDate } from 'src/app/shared/utils';
+import { getFormattedDate, inboxId } from 'src/app/shared/utils';
 import { addTask } from 'src/app/store/tasks.actions';
 import { v4 as uuid } from 'uuid';
 
@@ -23,6 +23,8 @@ export class NewTaskComponent {
   onSave(values: Partial<Task>): void {
     this.store.dispatch(addTask({ 
       id: uuid(),
+      projectId: inboxId,
+      sectionId: inboxId,
       date: getFormattedDate(this.date),
       completion: 0,
       order: 1,

@@ -1,5 +1,5 @@
 import { Project } from '../shared/models';
-import { inboxId, someProjectId } from '../shared/utils';
+import { inboxId, secondInboxSectionId, someProjectId } from '../shared/utils';
 import { createReducer, on } from "@ngrx/store";
 import * as ProjectActions from './projects.actions';
 import { v4 as uuid } from 'uuid';
@@ -13,6 +13,11 @@ export const initialState: Project[] = [
                 id: inboxId,
                 name: 'default',
                 order: 0
+            },
+            {
+                id: secondInboxSectionId,
+                name: 'second inbox section',
+                order: 1
             }
         ]
     },

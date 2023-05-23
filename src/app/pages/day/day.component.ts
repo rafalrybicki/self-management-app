@@ -31,8 +31,8 @@ export class DayComponent implements OnInit {
       }
     })
 
-    this.tasks$ = this.store.select(selectTasksByDate, { date: getFormattedDate(this.date) });
-    this.dayPercentage$ = this.store.select(selectDatePercentage, { date: getFormattedDate(this.date) });
+    this.tasks$ = this.store.select(selectTasksByDate, getFormattedDate(this.date));
+    this.dayPercentage$ = this.store.select(selectDatePercentage, getFormattedDate(this.date));
   }
 
   private setDate(dateParam: string | undefined): void {  

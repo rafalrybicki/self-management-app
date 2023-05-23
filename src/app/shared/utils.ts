@@ -40,4 +40,5 @@ export const getNextWeek = (week: number, year: number): string => {
 }
 
 export const inboxId = uuid();
+export const secondInboxSectionId = uuid();
 export const someProjectId = uuid();
