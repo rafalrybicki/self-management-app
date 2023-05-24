@@ -5,7 +5,6 @@ import { Observable, first, map } from 'rxjs';
 import { Section, State, Task } from 'src/app/shared/models';
 import { inboxId } from 'src/app/shared/utils';
 import { selectProject } from 'src/app/store/projects.selectors';
-import { selectTasksByProject } from 'src/app/store/tasks.selectors';
 
 @Component({
   selector: 'app-project',
@@ -13,10 +12,9 @@ import { selectTasksByProject } from 'src/app/store/tasks.selectors';
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements OnInit {
-  id: string | undefined;
+  id: string;
   name: string | undefined;
   sections: Section[];
-  tasks$: Observable<Task[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +27,7 @@ export class ProjectComponent implements OnInit {
       const projectId = this.router.url === '/inbox' ? inboxId : params['id'];
       
       this.store.select(selectProject, projectId).pipe(first()).subscribe(project => {
-        this.id = project?.id;
+        this.id = project?.id!;
         this.name = project?.name;
         this.sections = project?.sections!;
       });
@@ -37,14 +35,6 @@ export class ProjectComponent implements OnInit {
       if (!this.id) {
         this.router.navigateByUrl('inbox');
       }
-
-      this.tasks$ = this.store.select(selectTasksByProject, this.id!);
     })
   }
-
-  get doneTasks$(): Observable<Task[]> {
-      return this.tasks$.pipe(
-        map(tasks => tasks.filter(task => task.completion === task.weight))
-      );
-    }
 }

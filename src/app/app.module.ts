@@ -15,7 +15,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { rootReducer } from './store/rootReducer';
 import { TaskEditorComponent } from './components/task-editor/task-editor.component';
 import { ProjectComponent } from './pages/project/project.component';
-import { FilterUncompletedOnSectionPipe } from './shared/filterOnSection.pipe';
+import { SectionComponent } from './components/section/section.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { FilterUncompletedOnSectionPipe } from './shared/filterOnSection.pipe';
     WeekComponent,
     TaskEditorComponent,
     ProjectComponent,
-    FilterUncompletedOnSectionPipe
+    SectionComponent
   ],
   imports: [
     BrowserModule,

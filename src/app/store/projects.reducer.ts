@@ -29,15 +29,10 @@ export const initialState: Project[] = [
                 id: someProjectId,
                 name: 'default',
                 order: 0
-            },
-            {
-                id: uuid(),
-                name: 'section',
-                order: 1
             }
         ],
         color: 'blue'
-    },
+    }
 ]
 
 export const projectsReducer = createReducer(

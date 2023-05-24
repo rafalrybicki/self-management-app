@@ -1,0 +1,17 @@
+<h2>
+    {{ name }} 
+    <span *ngIf="tasks$ | async as tasks" class="quantity">
+        {{ tasks.length }}
+    </span>
+</h2>
+
+<app-task *ngFor="let task of tasks$ | async"
+    [id]="task.id"
+    [content]="task.content"
+    [weight]="task.weight"
+    [completion]="task.completion"
+    [order]="task.order"
+    [subtasks]="task.subtasks"
+    [completedSubtasks]="task.completedSubtasks"
+    class="section-task"
+></app-task>

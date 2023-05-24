@@ -4,9 +4,15 @@ import { formatPercent } from '@angular/common';
 
 const selectTasks = (state: State) => state.tasks;
 
-export const selectTasksByProject = createSelector(
+export const selectTasksBySection = createSelector(
     selectTasks,
-    (tasks: Task[],  projectId: string) => tasks.filter(task => task.projectId === projectId).sort((a, b) => a.order - b.order)
+    (tasks: Task[],  sectionId: string) => tasks.filter(task => task.sectionId === sectionId && task.completion !== task.weight)
+                                                .sort((a, b) => a.order - b.order)
+);
+
+export const selectDoneTasks = createSelector(
+    selectTasks,
+    (tasks: Task[],  projectId: string) => tasks.filter(task => task.projectId === projectId && task.completion === task.weight)
 );
 
 export const selectTasksByDate = createSelector(

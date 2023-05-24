@@ -1,29 +1,9 @@
 <h1>{{ name }}</h1>
 
-<div *ngFor="let section of sections">
-    <h2>{{ section.name }}</h2>
-    <ng-container *ngIf="tasks$ | async as tasks">
-        <app-task *ngFor="let task of tasks | filterUncompletedOnSection : section.id"
-            [id]="task.id"
-            [content]="task.content"
-            [weight]="task.weight"
-            [completion]="task.completion"
-            [order]="task.order"
-            [subtasks]="task.subtasks"
-            [completedSubtasks]="task.completedSubtasks"
-        ></app-task>
+<div class="sections">
+    <ng-container *ngFor="let section of sections">
+        <app-section [name]="section.name" [id]="section.id"></app-section>
     </ng-container>
-</div>
-
-<div>
-    <h2>Done</h2>
-    <app-task *ngFor="let task of doneTasks$ | async"
-        [id]="task.id"
-        [content]="task.content"
-        [weight]="task.weight"
-        [completion]="task.completion"
-        [order]="task.order"
-        [subtasks]="task.subtasks"
-        [completedSubtasks]="task.completedSubtasks"
-    ></app-task>
+    
+    <app-section name="Done" [id]="id" [doneSection]="true"></app-section>
 </div>
