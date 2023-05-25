@@ -1,46 +1,79 @@
 :host {
+    position: relative;
     display: flex;
+    align-items: center;
     width: 500px;
     max-width: 100%;
-    margin-bottom: 10px;
     cursor: pointer;
     user-select: none;
-    font-size: 18px;
-    margin: 0 auto 10px;
+    font-size: 16px;
+    margin: 0 auto;
+    min-height: 36px;
+    padding: 5px 8px;
 
-    p {
-        margin-left: 7px;
-        flex-grow: 1;
-        padding-top: 4px;
-        line-height: 1;
-
-        &.completed {
+    &.day-task {
+        .completed {
             .content {
                 text-decoration: line-through;
                 color: grey;
             }
         }
+    }
+    
+    &.section-task {
+        background-color: white;
+        border-radius: 5px;
+        margin: 7px;
+        max-width: calc(100% - 14px);
+        font-size: 14px;
 
-        span {
+        .actions {
+            top: 4px;
+        }
+    }
+
+    p {
+        margin-left: 6px;
+        flex-grow: 1;
+        height: max-content;
+        display: flex;
+        align-items: center;
+
+        .weight, .subtasks  {
             border-radius: 3px;
-            padding: 2px 4px;
-            font-size: 14px;
-            
-            &.weight {
-                background-color:lightblue;
-                margin-right: 7px;
-            }
-
-            &.subtasks {
-                background-color: orange;
-            }
+            padding: 1px 4px;
+            font-size: 12px;
+            height: max-content;
+            margin-left: 7px;
         } 
+
+        .weight {
+            background-color:lightblue;
+        }
+
+        .subtasks {
+            background-color: orange;
+        }
+    }
+
+    .actions {
+        position: absolute;
+        background-color: transparent;
+        top: 0;
+        right: 8px;
+        display: flex;
+        gap: 5px
+        
     }
     
 
     &:hover {
-        i.action {
-            visibility: visible;
+        .actions {
+            background-color: white;
+
+            i.action {
+                visibility: visible;
+            }
         }
     }
 
@@ -59,7 +92,6 @@
             width: 26px;
             height: 26px;
             border-radius: 3px;
-            margin-right: 5px;
 
             &:hover {
                 color: black;
