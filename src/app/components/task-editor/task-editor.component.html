@@ -1,7 +1,7 @@
 <form class="editor" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
     <div class="content">
         <label for="content">Content</label>
-        <input id="content" autofocus type="text" formControlName="content" />
+        <input id="content" autofocus type="text" formControlName="content" autocomplete="off"/>
     </div>
 
     <div class="weight">
