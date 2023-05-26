@@ -54,13 +54,15 @@ export class TaskComponent {
   }
 
   onEdit(obj: Partial<Task>): void {
-    if (this.completed) {
-      obj.completion = obj.weight;
-    } else if (obj.weight !== this.weight) {
-      obj.completion = (this.completedSubtasks / this.weight) * obj.weight!;
+    if (obj.weight !== this.weight || obj.subtasks !== this.subtasks) {
+      if (this.completed) {
+        obj.completion = obj.weight;
+        obj.completedSubtasks = obj.subtasks;
+      } else {
+        obj.completion = 0;
+        obj.completedSubtasks = 0;
+      }
     }
-
-// jeszcze zmiana subtaskow bedzie
 
     this.updateTask(obj);
     this.toggleEditor;
