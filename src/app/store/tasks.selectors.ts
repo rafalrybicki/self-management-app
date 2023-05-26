@@ -17,7 +17,7 @@ export const selectDoneTasks = createSelector(
 
 export const selectTasksByDate = createSelector(
     selectTasks,
-    (tasks: Task[],  date: string) => tasks.filter(task => task.date === date)
+    (tasks: Task[],  dateStr: string) => tasks.filter(task => task.dateStr === dateStr)
 );
 
 export const selectDatePercentage = createSelector(

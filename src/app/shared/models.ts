@@ -16,12 +16,14 @@ export interface Task {
     projectId: string;
     sectionId: string;
     content: string;
-    date: string;
-    weight: number;
     completion: number;
-    order: number;
+    completionDate?: number;
+    date?: number;
+    dateStr?: string;
     subtasks: number;
     completedSubtasks: number;
+    order: number;
+    weight: number;
 }
 
 export interface Quote {
