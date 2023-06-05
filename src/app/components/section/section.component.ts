@@ -10,8 +10,9 @@ import { selectDoneTasks, selectTasksBySection } from 'src/app/store/tasks.selec
   styleUrls: ['./section.component.scss']
 })
 export class SectionComponent implements OnInit {
-  @Input() name: string;
   @Input() id: string;
+  @Input() projectId: string;
+  @Input() name: string;
   @Input() doneSection: boolean = false;
 
   tasks$: Observable<Task[]>;

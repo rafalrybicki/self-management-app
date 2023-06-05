@@ -5,13 +5,18 @@
     </span>
 </h2>
 
-<app-task *ngFor="let task of tasks$ | async"
-    [id]="task.id"
-    [content]="task.content"
-    [weight]="task.weight"
-    [completion]="task.completion"
-    [order]="task.order"
-    [subtasks]="task.subtasks"
-    [completedSubtasks]="task.completedSubtasks"
-    class="section-task"
-></app-task>
+<div class="tasks">
+    <app-task *ngFor="let task of tasks$ | async"
+        mode="section"
+        [id]="task.id"
+        [content]="task.content"
+        [weight]="task.weight"
+        [completion]="task.completion"
+        [order]="task.order"
+        [subtasks]="task.subtasks"
+        [completedSubtasks]="task.completedSubtasks"
+        class="section-task"
+    ></app-task>
+</div>
+
+<app-new-task *ngIf="!doneSection" mode="section" [sectionId]="id" [projectId]="projectId"></app-new-task>
