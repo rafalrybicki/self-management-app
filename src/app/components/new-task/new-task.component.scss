@@ -1,11 +1,15 @@
 :host {
+    position: relative;
     display: block;
-    max-width: max-content;
-    margin: 20px auto 0;
+    width: 100%;
+    max-width: 500px;
     border-radius: 3px;
-    background-color: lightgrey;
-
+    margin: 20px auto 0;
+    
     button {
+        display: block;
+        margin: 0 auto;
+        background-color: #e5e4e2;
         padding: 10px;
         font-weight: bold;
     }
