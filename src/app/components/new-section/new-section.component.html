@@ -1,0 +1,3 @@
+<button *ngIf="!showEditor" (click)="toggleEditor()">+ Add new section</button>
+
+<div *ngIf="showEditor" (close)="toggleEditor()">EDITOR</div>

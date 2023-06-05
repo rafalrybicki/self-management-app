@@ -16,6 +16,7 @@ import { rootReducer } from './store/rootReducer';
 import { TaskEditorComponent } from './components/task-editor/task-editor.component';
 import { ProjectComponent } from './pages/project/project.component';
 import { SectionComponent } from './components/section/section.component';
+import { NewSectionComponent } from './components/new-section/new-section.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SectionComponent } from './components/section/section.component';
     WeekComponent,
     TaskEditorComponent,
     ProjectComponent,
-    SectionComponent
+    SectionComponent,
+    NewSectionComponent
   ],
   imports: [
     BrowserModule,
