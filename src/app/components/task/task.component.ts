@@ -10,14 +10,16 @@ import { showQuote } from 'src/app/shared/utils';
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent {
-  @Input() id: string;
-  @Input() content: string;
-  @Input() date: string;
-  @Input() weight: number;
-  @Input() completion: number;
-  @Input() order: number;
-  @Input() subtasks: number;
-  @Input() completedSubtasks: number;
+  @Input({ required: true }) id: string;
+  @Input({ required: true }) content: string;
+  @Input({ required: true }) weight: number;
+  @Input({ required: true }) completion: number;
+  @Input({ required: true }) order: number;
+  @Input({ required: true }) subtasks: number;
+  @Input({ required: true }) completedSubtasks: number;
+  @Input({ required: true }) mode: 'section' | 'day';
+  @Input() date: number;
+  @Input() dateStr: string;
 
   edit: boolean = false;
 

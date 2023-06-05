@@ -9,7 +9,6 @@
     font-size: 16px;
     margin: 0 auto;
     min-height: 36px;
-    padding: 5px 8px;
 
     &.day-task {
         .completed {
@@ -27,13 +26,17 @@
         max-width: calc(100% - 14px);
         font-size: 14px;
 
+        .completion {
+            margin-left: 10px;
+        }
+
         .actions {
             top: 4px;
         }
     }
 
     p {
-        margin-left: 6px;
+        padding: 0 6px;
         flex-grow: 1;
         height: max-content;
         display: flex;

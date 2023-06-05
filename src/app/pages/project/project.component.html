@@ -2,8 +2,8 @@
 
 <div class="sections">
     <ng-container *ngFor="let section of sections">
-        <app-section [name]="section.name" [id]="section.id"></app-section>
+        <app-section [name]="section.name" [id]="section.id" [projectId]="id"></app-section>
     </ng-container>
     
-    <app-section name="Done" [id]="id" [doneSection]="true"></app-section>
+    <app-section name="Done" [id]="id" [projectId]="id" [doneSection]="true"></app-section>
 </div>

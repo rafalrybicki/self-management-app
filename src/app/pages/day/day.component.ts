@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { State, Task } from 'src/app/shared/models';
 import { getFormattedDate } from 'src/app/shared/utils';
 import { selectTasksByDate, selectDatePercentage } from 'src/app/store/tasks.selectors';
+import { inboxId } from '../../shared/utils';
 
 @Component({
   selector: 'app-day',
@@ -15,6 +16,7 @@ export class DayComponent implements OnInit {
   date: Date;
   dayPercentage$: Observable<String>;
   tasks$: Observable<Task[]>;
+  inboxId: string = inboxId;
 
   constructor(
     private route: ActivatedRoute,
