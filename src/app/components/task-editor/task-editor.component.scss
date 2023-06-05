@@ -1,28 +1,40 @@
 :host {
+    z-index: 10;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #e5e4e2;
+
     form {
-        position: relative;
-        width: 500px;
+        display: grid;
+        column-gap: 10px;
+        row-gap: 10px;
+        width: 100%;
         max-width: 100%;
-        padding: 10px 10px;
-        background-color: lightgrey;
-        border-radius: 4px;
+        
 
         div {
             display: flex;
             align-items: center;
-            
-            &.content {
-                margin-bottom: 10px;
-                width: 100%;
 
+            &.content {
+                grid-area: content;
+                
                 input {
-                    flex: 1;
                     padding: 0 5px;
                 }
             }
+    
+            &.multiplier {
+                grid-area: multiplier;
+            }
+    
+            &.subtasks {
+                grid-area: subtasks;
+            }
 
-
-            &.weight, &.subtasks {
+            &.multiplier, &.subtasks {
                 input {
                     text-align: center;
                     padding-left: 10px;
@@ -31,25 +43,21 @@
 
             label {
                 font-size: 14px;
-                width: 65px;
+                min-width: 65px;
                 display: inline-block;
             }
 
             input {
-                height: 26px;
+                height: 100%;
                 border-radius: 3px;
                 border: none;
-                flex: 1;
                 font-size: 16px;
+                flex: 1;
             }
         }
 
         button {
-            position: absolute;
-            padding: 0 10px;
-            height: 26px;
             border-radius: 3px;
-            bottom: 10px;
             color: white;
             font-size: 14px;
             
@@ -59,67 +67,44 @@
             }
 
             &.btn-cancel {
+                grid-area: cancel;
                 background-color: red;
             }
 
             &.btn-submit {
-                right: 10px;
+                grid-area: submit;
                 background-color: green;
             }
         }
     }
-}
 
-.section-task {
-    :host {
-        position: absolute;
-        top: 0;
-        left: 0;
-        max-width: 286px;
-
-        .subtasks {
-            margin-left: 16px;
-            margin-bottom: 36px;
+    &.day {
+        form {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 26px 26px;
+            grid-template-areas: 
+                "content content content content"
+                "multiplier subtasks cancel submit";
         }
-    
-        .weight, .subtasks {
-            display: inline-block;
+    }
 
-            input {
-                width: 60px;
-            }
-        }
-
-        button {
-            width: 128px;
-
-            &.btn-cancel {
-                left: 10px;
+    &.section {
+        form {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 26px 26px 26px;
+            grid-template-areas: 
+                "content content"
+                "multiplier subtasks"
+                "cancel submit";
+        
+            .multiplier, .subtasks {
+                input {
+                    width: 60px;
+                }
             }
         }
     }
 }
-
-.day-task {
-    :host {
-        .weight {
-            margin-right: 25px;
-        }
-
-        .weight, .subtasks {
-            display: inline-block;
-
-            input {
-                width: 70px;
-            }
-        }
-
-        .btn-cancel {
-            right: 70px;
-        }
-    }
-}
-
     
     // .datepicker-toggle {
     //     display: inline-block;
