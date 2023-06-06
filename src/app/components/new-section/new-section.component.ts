@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { Section } from 'src/app/shared/models';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/shared/models';
+import { addSection } from 'src/app/store/sections.actions';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-new-section',
@@ -12,7 +15,18 @@ export class NewSectionComponent {
 
   showEditor: boolean = false; 
 
+  constructor(private store: Store<State>) {}
+
   toggleEditor(): void {
     this.showEditor = !this.showEditor;
+  }
+
+  onSave(name: string): void {
+    this.store.dispatch(addSection({
+      id: uuid(),
+      projectId: this.projectId, 
+      name,
+      order: this.order,
+    }))
   }
 }

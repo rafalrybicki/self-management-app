@@ -17,6 +17,7 @@ import { TaskEditorComponent } from './components/task-editor/task-editor.compon
 import { ProjectComponent } from './pages/project/project.component';
 import { SectionComponent } from './components/section/section.component';
 import { NewSectionComponent } from './components/new-section/new-section.component';
+import { SectionEditorComponent } from './components/section-editor/section-editor.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NewSectionComponent } from './components/new-section/new-section.compon
     TaskEditorComponent,
     ProjectComponent,
     SectionComponent,
-    NewSectionComponent
+    NewSectionComponent,
+    SectionEditorComponent
   ],
   imports: [
     BrowserModule,
