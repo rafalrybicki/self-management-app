@@ -1,12 +1,12 @@
 export interface Project {
     id: string;
     name: string;
-    sections: Section[];
     color?: string;
 }
 
 export interface Section {
     id: string;
+    projectId: string;
     name: string;
     order: number;
 }
@@ -33,6 +33,7 @@ export interface Quote {
 
 export interface State {
     projects: Project[];
+    sections: Section[];
     tasks: Task[];
     quotes: Quote[];
 }

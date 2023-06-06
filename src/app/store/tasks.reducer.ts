@@ -1,7 +1,7 @@
 import { Task } from "../shared/models";
 import { createReducer, on } from "@ngrx/store";
 import * as TaskActions from './tasks.actions';
-import { getFormattedDate, inboxId, secondInboxSectionId, someProjectId } from '../shared/utils';
+import { getFormattedDate, inboxId, inboxSecondSectionId, someProjectId } from '../shared/utils';
 import { v4 as uuid } from 'uuid';
 
 export const initialState: Task[] =  [
@@ -60,7 +60,7 @@ export const initialState: Task[] =  [
     {
         id: uuid(),
         projectId: inboxId,
-        sectionId: secondInboxSectionId,
+        sectionId: inboxSecondSectionId,
         content: 'Task second section order 1',
         date: new Date().valueOf(),
         dateStr: getFormattedDate(),
